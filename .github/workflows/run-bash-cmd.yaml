@@ -1,0 +1,20 @@
+---
+name: run bash command
+
+on:
+  workflow_dispatch:
+    inputs:
+      cmd:
+        description: the bash command to run
+        required: true
+        type: string
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: run cmd
+        run: ${{ inputs.cmd }}
